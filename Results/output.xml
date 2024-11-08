@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2024-11-06T21:24:21.768175" rpa="false" schemaversion="5">
+<suite id="s1" name="Wordcounter" source="C:\development\robot-scripts\wordcounter\Tests\wordcounter.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-11-06T21:24:22.099219" level="INFO">Opening browser 'chrome' to base url 'https://wordcounter.net/'.</msg>
+<arg>https://wordcounter.net/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-06T21:24:22.099022" elapsed="4.205869"/>
+</kw>
+<test id="s1-t1" name="Validate Word Count" line="25">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-06T21:24:26.306214" elapsed="0.026142"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:26.333471" level="INFO">Typing text 'lumu lumu lumu lumu lumu illuminates illuminates attacks and adversaries lumu illuminates all attacks and adversaries' into text field 'xpath://textarea[@class="form-control table-data finalResult textarea_revision processed"]'.</msg>
+<arg>xpath://textarea[@class="form-control table-data finalResult textarea_revision processed"]</arg>
+<arg>${TEXT_INPUT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:26.332848" elapsed="0.630687"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="word_count"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-06T21:24:26.963957" elapsed="0.043251"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:27.034571" level="INFO">${word_count} = 16</msg>
+<var>${word_count}</var>
+<arg>xpath://*[@id="word_count"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.007721" elapsed="0.026907"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${word_count}</arg>
+<arg>${EXPECTED_WORD_COUNT}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.035049" elapsed="0.000334"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2024-11-06T21:24:27.197229" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.035819" elapsed="0.161520"/>
+</kw>
+<doc>Validate that the word count is correctly displayed</doc>
+<status status="PASS" start="2024-11-06T21:24:26.305285" elapsed="0.892344"/>
+</test>
+<test id="s1-t2" name="Validate Character Count" line="32">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.198897" elapsed="0.004212"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:27.203648" level="INFO">Typing text 'lumu lumu lumu lumu lumu illuminates illuminates attacks and adversaries lumu illuminates all attacks and adversaries' into text field 'xpath://textarea[@class="form-control table-data finalResult textarea_revision processed"]'.</msg>
+<arg>xpath://textarea[@class="form-control table-data finalResult textarea_revision processed"]</arg>
+<arg>${TEXT_INPUT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.203405" elapsed="0.667624"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="character_count"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.871535" elapsed="0.048784"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:27.950697" level="INFO">${char_count} = 117</msg>
+<var>${char_count}</var>
+<arg>xpath://*[@id="character_count"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.920893" elapsed="0.029869"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${char_count}</arg>
+<arg>${EXPECTED_CHAR_COUNT}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.951218" elapsed="0.000439"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2024-11-06T21:24:28.173723" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-11-06T21:24:27.952425" elapsed="0.221461"/>
+</kw>
+<doc>Validate that the character count is correctly displayed</doc>
+<status status="PASS" start="2024-11-06T21:24:27.198397" elapsed="0.975875"/>
+</test>
+<test id="s1-t3" name="Validate Keyword Density" line="39">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-06T21:24:28.176109" elapsed="0.005070"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:28.182175" level="INFO">Typing text 'lumu lumu lumu lumu lumu illuminates illuminates attacks and adversaries lumu illuminates all attacks and adversaries' into text field 'xpath://textarea[@class="form-control table-data finalResult textarea_revision processed"]'.</msg>
+<arg>xpath://textarea[@class="form-control table-data finalResult textarea_revision processed"]</arg>
+<arg>${TEXT_INPUT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:28.181780" elapsed="0.926254"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//span[text()="${WORDS[0]}"]/parent::a//span[@class='badge']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.108492" elapsed="0.030995"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-06T21:24:29.140165" level="INFO">Length is 6.</msg>
+<msg time="2024-11-06T21:24:29.140290" level="INFO">${words_length} = 6</msg>
+<var>${words_length}</var>
+<arg>${WORDS}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.139936" elapsed="0.000396"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.141432" level="INFO">${word} = lumu</msg>
+<var>${word}</var>
+<arg>${WORDS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.141172" elapsed="0.000302"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.141910" level="INFO">${expected_count} = 6</msg>
+<var>${expected_count}</var>
+<arg>${EXPECTED_COUNTS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.141653" elapsed="0.000297"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.142365" level="INFO">${expected_percentage} = 43</msg>
+<var>${expected_percentage}</var>
+<arg>${EXPECTED_PERCENTAGES}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.142119" elapsed="0.000284"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-06T21:24:29.142995" level="INFO">Word: lumu, Expected Count: 6, Expected Percentage: 43</msg>
+<arg>Word: ${word}, Expected Count: ${expected_count}, Expected Percentage: ${expected_percentage}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.142736" elapsed="0.000327"/>
+</kw>
+<kw name="Validate KeywordDensity" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.143763" elapsed="0.022638"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:29.191376" level="INFO">${keyword_density} = 6 (43%)</msg>
+<var>${keyword_density}</var>
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.166650" elapsed="0.024782"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${keyword_density}</arg>
+<arg>${expected_count} (${expected_percentage}%)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.191657" elapsed="0.000389"/>
+</kw>
+<arg>${word}</arg>
+<arg>${expected_count}</arg>
+<arg>${expected_percentage}</arg>
+<status status="PASS" start="2024-11-06T21:24:29.143302" elapsed="0.048866"/>
+</kw>
+<var name="${index}">0</var>
+<status status="PASS" start="2024-11-06T21:24:29.141004" elapsed="0.051240"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.192879" level="INFO">${word} = illuminates</msg>
+<var>${word}</var>
+<arg>${WORDS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.192614" elapsed="0.000304"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.193316" level="INFO">${expected_count} = 3</msg>
+<var>${expected_count}</var>
+<arg>${EXPECTED_COUNTS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.193069" elapsed="0.000285"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.193731" level="INFO">${expected_percentage} = 21</msg>
+<var>${expected_percentage}</var>
+<arg>${EXPECTED_PERCENTAGES}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.193501" elapsed="0.000279"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-06T21:24:29.194158" level="INFO">Word: illuminates, Expected Count: 3, Expected Percentage: 21</msg>
+<arg>Word: ${word}, Expected Count: ${expected_count}, Expected Percentage: ${expected_percentage}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.193939" elapsed="0.000282"/>
+</kw>
+<kw name="Validate KeywordDensity" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.194893" elapsed="0.025866"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:29.242979" level="INFO">${keyword_density} = 3 (21%)</msg>
+<var>${keyword_density}</var>
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.220980" elapsed="0.022055"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${keyword_density}</arg>
+<arg>${expected_count} (${expected_percentage}%)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.243240" elapsed="0.000320"/>
+</kw>
+<arg>${word}</arg>
+<arg>${expected_count}</arg>
+<arg>${expected_percentage}</arg>
+<status status="PASS" start="2024-11-06T21:24:29.194438" elapsed="0.049246"/>
+</kw>
+<var name="${index}">1</var>
+<status status="PASS" start="2024-11-06T21:24:29.192486" elapsed="0.051275"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.244377" level="INFO">${word} = attacks</msg>
+<var>${word}</var>
+<arg>${WORDS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.244097" elapsed="0.000320"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.244827" level="INFO">${expected_count} = 2</msg>
+<var>${expected_count}</var>
+<arg>${EXPECTED_COUNTS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.244577" elapsed="0.000289"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.245247" level="INFO">${expected_percentage} = 14</msg>
+<var>${expected_percentage}</var>
+<arg>${EXPECTED_PERCENTAGES}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.245016" elapsed="0.000282"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-06T21:24:29.245670" level="INFO">Word: attacks, Expected Count: 2, Expected Percentage: 14</msg>
+<arg>Word: ${word}, Expected Count: ${expected_count}, Expected Percentage: ${expected_percentage}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.245450" elapsed="0.000282"/>
+</kw>
+<kw name="Validate KeywordDensity" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.246357" elapsed="0.025041"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:29.291918" level="INFO">${keyword_density} = 2 (14%)</msg>
+<var>${keyword_density}</var>
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.271643" elapsed="0.020328"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${keyword_density}</arg>
+<arg>${expected_count} (${expected_percentage}%)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.292177" elapsed="0.000295"/>
+</kw>
+<arg>${word}</arg>
+<arg>${expected_count}</arg>
+<arg>${expected_percentage}</arg>
+<status status="PASS" start="2024-11-06T21:24:29.245932" elapsed="0.046663"/>
+</kw>
+<var name="${index}">2</var>
+<status status="PASS" start="2024-11-06T21:24:29.243971" elapsed="0.048691"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.293179" level="INFO">${word} = and</msg>
+<var>${word}</var>
+<arg>${WORDS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.292939" elapsed="0.000277"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.293601" level="INFO">${expected_count} = 0</msg>
+<var>${expected_count}</var>
+<arg>${EXPECTED_COUNTS}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.293364" elapsed="0.000273"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2024-11-06T21:24:29.294159" level="INFO">${expected_percentage} = 0</msg>
+<var>${expected_percentage}</var>
+<arg>${EXPECTED_PERCENTAGES}</arg>
+<arg>${index}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.293907" elapsed="0.000289"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-06T21:24:29.294577" level="INFO">Word: and, Expected Count: 0, Expected Percentage: 0</msg>
+<arg>Word: ${word}, Expected Count: ${expected_count}, Expected Percentage: ${expected_percentage}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-06T21:24:29.294348" elapsed="0.000290"/>
+</kw>
+<kw name="Validate KeywordDensity" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-11-06T21:24:59.463156" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-11-06T21:24:59.463341" level="FAIL">Element 'xpath=//span[text()="and"]/parent::a//span[@class='badge']' not visible after 30 seconds.</msg>
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-11-06T21:24:29.295222" elapsed="30.169896">Element 'xpath=//span[text()="and"]/parent::a//span[@class='badge']' not visible after 30 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${keyword_density}</var>
+<arg>xpath=//span[text()="${word}"]/parent::a//span[@class='badge']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-11-06T21:24:59.465280" elapsed="0.000030"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${keyword_density}</arg>
+<arg>${expected_count} (${expected_percentage}%)</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2024-11-06T21:24:59.465400" elapsed="0.000024"/>
+</kw>
+<arg>${word}</arg>
+<arg>${expected_count}</arg>
+<arg>${expected_percentage}</arg>
+<status status="FAIL" start="2024-11-06T21:24:29.294818" elapsed="30.170772">Element 'xpath=//span[text()="and"]/parent::a//span[@class='badge']' not visible after 30 seconds.</status>
+</kw>
+<var name="${index}">3</var>
+<status status="FAIL" start="2024-11-06T21:24:29.292826" elapsed="30.172913">Element 'xpath=//span[text()="and"]/parent::a//span[@class='badge']' not visible after 30 seconds.</status>
+</iter>
+<var>${index}</var>
+<value>0</value>
+<value>${words_length}</value>
+<status status="FAIL" start="2024-11-06T21:24:29.140615" elapsed="30.325232">Element 'xpath=//span[text()="and"]/parent::a//span[@class='badge']' not visible after 30 seconds.</status>
+</for>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2024-11-06T21:24:59.589421" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-11-06T21:24:59.466268" elapsed="0.123235"/>
+</kw>
+<doc>Validate that the keyword density for specific words is correct</doc>
+<status status="FAIL" start="2024-11-06T21:24:28.175385" elapsed="31.414357">Element 'xpath=//span[text()="and"]/parent::a//span[@class='badge']' not visible after 30 seconds.</status>
+</test>
+<kw name="Sleep" owner="BuiltIn" type="TEARDOWN">
+<msg time="2024-11-06T21:25:09.591253" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-06T21:24:59.590862" elapsed="10.000481"/>
+</kw>
+<status status="FAIL" start="2024-11-06T21:24:21.769758" elapsed="47.821658"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" skip="0" id="s1" name="Wordcounter">Wordcounter</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
